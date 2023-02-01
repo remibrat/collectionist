@@ -1,0 +1,17 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+  web:
+    build: .
+    volumes:
+      - .:/collectionist
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db

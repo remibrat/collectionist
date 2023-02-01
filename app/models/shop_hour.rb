@@ -1,0 +1,2 @@
+class ShopHour < ApplicationRecord
+end
